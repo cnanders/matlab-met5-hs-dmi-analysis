@@ -14,9 +14,15 @@ f_max = 500;
 
 % addpath(genpath(fullfile(pwd, '../../Functions')));
 
+if (ispc)
+    cDirStart = 'C:\Users\metmatlab\Documents\HS-DMI-Record';
+else
+    cDirStart = '~/Documents/Matlab/Data/MET5/HS/2018-06-22-VME';
+end
+
 [file_name, file_path] = uigetfile( ...
     '*','Select the log file',...
-    '~/Documents/Matlab/Data/MET5/HS/2018-06-22-VME' ... // 06-13  // 2014-12-22 //2014-10-23
+    cDirStart ... // 06-13  // 2014-12-22 //2014-10-23
 );
 
 fprintf('%s \n\n', [file_path, file_name]);
@@ -198,8 +204,8 @@ channels = [1, 2, 3];
 
 hFigOverlap = figure;
 dScreenSize = get(0, 'ScreenSize');
-dWidthFigure = 1200;
-dHeightFigure = 500;
+dWidthFigure = 1700;
+dHeightFigure = 900;
 dPos = [...
     (dScreenSize(3) - dWidthFigure) / 2 ...
     (dScreenSize(4) - dHeightFigure) / 2 ...
